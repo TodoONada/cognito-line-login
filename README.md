@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Cognito+Lineログインを使用したReactアプリケーションの認証
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## プロジェクト概要
+このプロジェクトは、CognitoとLineログインを使用してReactアプリケーションで認証を行うためのものです。このREADMEでは、セットアップ手順、環境変数の設定、およびアプリケーションの使用方法について説明します。
 
-## Available Scripts
+## セットアップ手順
 
-In the project directory, you can run:
+### 前提条件
+- Node.jsがインストールされていること
+- AWSアカウントがあり、Cognitoが設定されていること
+- Line Developersアカウントがあり、LINEログインが設定されていること
 
-### `npm start`
+### 環境変数の設定
+まず、プロジェクトルートに `.env` ファイルを作成し、以下の内容を記述してください。この情報はCognitoとLineログインの設定に必要です。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+REACT_APP_COGNITO_USER_POOL_ID=ap-northeast-1_abcdefghi
+REACT_APP_COGNITO_USER_POOL_WEB_CLIENT_ID=1234567890abcdefghijklmnop
+REACT_APP_COGNITO_IDENTITY_POOL_ID=ap-northeast-1:40606946-e40e-4791-be4a-b60a4d60628d
+REACT_APP_COGNITO_OAUTH_DOMAIN=sample-line-login.auth.ap-northeast-1.amazoncognito.com
+REACT_APP_COGNITO_OAUTH_REDIRECT_SIGNIN_URL=http://localhost:3000
+REACT_APP_COGNITO_OAUTH_REDIRECT_SIGNOUT_URL=http://localhost:3000
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### パッケージのインストール
+プロジェクトルートで以下のコマンドを実行して、必要なパッケージをインストールしてください。
 
-### `npm test`
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### アプリケーションの起動
 
-### `npm run build`
+以下のコマンドを実行して、アプリケーションを起動してください。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm start
+```
